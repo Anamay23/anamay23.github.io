@@ -132,79 +132,95 @@
 		</aside>
 
 		<div id="colorlib-main">
+
 			<section id="colorlib-hero" class="js-fullheight" data-section="home">
 				<div class="flexslider js-fullheight">
 					<ul class="slides">
-				   	<li style="background-image: url(images/img_bg_1.jpg);">
-				   		<div class="overlay"></div>
-				   		<div class="container-fluid">
-				   			<div class="row">
-					   			<div class="col-md-6 col-md-offset-3 col-md-pull-3 col-sm-12 col-xs-12 js-fullheight slider-text">
-					   				<div class="slider-text-inner js-fullheight">
-					   					<div class="desc">
-						   					<h1>Hi! <br>I'm Anamay</h1>
-											<!-- Element to contain animated typing -->
-											
-											<span id="typing-animation-container">
-												
-												<span id="typing-animation"></span><!-- Animated text -->
-											</span>
-  
-											<!-- Element to contain animated typing -->
-											<span id="typing-animation"></span>
-
-											<script>
-
-											// Initialize the typing animation
-											const typingAnimationElement = document.getElementById('typing-animation');
-
-											// Create an array of typing text
-											const typingTexts = [
-											'Data Scientist   ',
-											'Data Analyst   ',
-											'AI Enthusiast   ',
-											];
-
-											// Create a function to display the typing animation for a given text
-											function playTypingAnimation(text) {
-											// Loop through each character and add it to the element
-											for (let i = 0; i < text.length; i++) {
-												setTimeout(() => {
-												typingAnimationElement.textContent += text[i];
-												}, i * 200); // Increase the delay to slow down the typing animation
-											}
-
-											// Once the animation is complete, reset the text and start over
-											setTimeout(() => {
-												typingAnimationElement.textContent = '';
-												playTypingAnimation(typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]);
-											}, text.length * 200);
-											}
-
-											// Start the typing animation loop
-											playTypingAnimation(typingTexts[0]);
-
-											</script>
-
+						<li style="background-image: url(images/img_bg_1.jpg);">
+							<div class="overlay"></div>
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-md-6 col-md-offset-3 col-md-pull-3 col-sm-12 col-xs-12 js-fullheight slider-text">
+										<div class="slider-text-inner js-fullheight">
+											<div class="desc">
+												<h1>Hi! <br>I'm Anamay</h1>
+												<!-- Typing animation container -->
+												<span id="typing-animation-container">
+													<span id="typing-animation"></span><!-- Animated text -->
+												</span>
+		
+												<!-- JavaScript for typing animation with smooth transition -->
+												<script>
+													// Initialize the typing animation
+													const typingAnimationElement = document.getElementById('typing-animation');
+		
+													// Array of typing text
+													const typingTexts = [
+														'Data Scientist',
+														'Analytics Expert',
+														'AI Innovator',
+													];
+		
+													// Function to display the typing animation
+													function playTypingAnimation(text, index = 0) {
+														let currentText = '';
+		
+														// Typing phase
+														const typeInterval = setInterval(() => {
+															if (index < text.length) {
+																currentText += text[index];
+																typingAnimationElement.textContent = currentText;
+																index++;
+															} else {
+																clearInterval(typeInterval);
+																// Pause after typing (500ms)
+																setTimeout(() => backspaceAnimation(text, 0), 500);
+															}
+														}, 200);
+		
+														// Backspacing phase
+														function backspaceAnimation(text, index = text.length) {
+															const backspaceInterval = setInterval(() => {
+																if (index > 0) {
+																	currentText = text.slice(0, index - 1);
+																	typingAnimationElement.textContent = currentText;
+																	index--;
+																} else {
+																	clearInterval(backspaceInterval);
+																	// Pause after backspacing (300ms)
+																	setTimeout(() => {
+																		const nextIndex = (typingTexts.indexOf(text) + 1) % typingTexts.length;
+																		playTypingAnimation(typingTexts[nextIndex]);
+																	}, 300);
+																}
+															}, 100);
+														}
+													}
+		
+													// Start the typing animation loop
+													playTypingAnimation(typingTexts[0]);
+												</script>
+		
+												<!-- Social media links -->
 												<div class="social-icons">
 													<a href="https://github.com/Anamay23" target="_blank" title="GitHub">
-													  <i class="fab fa-github"></i>
+														<i class="fab fa-github"></i>
 													</a>
 													<a href="https://www.linkedin.com/in/anamay-deshpande/" target="_blank" title="LinkedIn">
-													  <i class="fab fa-linkedin"></i>
+														<i class="fab fa-linkedin"></i>
 													</a>
 													<a href="mailto:anamay.deshpande@gmail.com" title="Email">
-														  <i class="fas fa-envelope"></i> 
-														</a>
-												</div>	
+														<i class="fas fa-envelope"></i>
+													</a>
+												</div>
+											</div>
 										</div>
-					   				</div>
-					   			</div>
-					   		</div>
-				   		</div>
-				   	</li>
-				  	</ul>
-			  	</div>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
 			</section>
 
 			
@@ -269,13 +285,20 @@
 									</div>
 								</div>
 							</div>
+
+							<div class="col-md-12 text-center animate-box" data-animate-effect="fadeInUp">
+								<p style="margin-top: 50px;">
+									<a href="./resume/AnamayDeshpande_Resume.pdf" download="AnamayDeshpande_Resume.pdf" class="btn-custom"
+									   style="display: inline-block; padding: 15px 60px; background: linear-gradient(90deg, #b7633cc2, #c16320bb); color: #fff; text-decoration: none; border-radius: 25px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(139,69,19,0.3);">
+										DOWNLOAD MY RESUME
+									</a>
+								</p>
+							</div>
+
 						</div>
 					</div>
 				</div>
 			</section>		
-
-			
-
 			
 			
 			<div id="colorlib-counter" class="colorlib-counters" style="background-image: url(images/cover_bg_1.jpg);" data-stellar-background-ratio="0.5">
@@ -1021,7 +1044,7 @@
 									<i class="icon-phone"></i>
 								</div>
 								<div class="colorlib-text">
-									<p style="color: #500d56ec;">+1 (201) 259-1527</a></p>
+									<p style="color: #500d56ec;">Contact Me :)</a></p>
 								</div>
 							</div>
 						</div>
